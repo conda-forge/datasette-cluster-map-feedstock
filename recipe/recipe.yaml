@@ -3,7 +3,7 @@ schema_version: 1
 
 context:
   name: datasette-cluster-map
-  version: "0.18.2"
+  version: 0.19.1
 
 package:
   name: ${{ name|lower }}
@@ -11,10 +11,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/datasette_cluster_map-${{ version }}.tar.gz
-  sha256: 6ae34faf0f2e3198cbfdc06faaf65ac43a4e3be02d916e4d69dd5e25abcc8b28
+  sha256: 3b6294037982d41a05b18ee4785063efd7c1af001bd4af61e12b3a1fdc60946e
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
@@ -26,8 +26,7 @@ requirements:
   run:
     - python >=${{ python_min }},<4.0
     - datasette >=0.54
-    - datasette-leaflet >=0.2.2
-
+    - datasette-leaflet >=0.3
 tests:
   - python:
       imports:
